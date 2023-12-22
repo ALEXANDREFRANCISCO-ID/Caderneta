@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Codeflash - Search Item</title>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  Color:#fff;
+}
+    
+.item {
+  background-color: #ff9e55;
+  padding: 20px;
+  text-align: center;
+  Border-radius:20px;
+  Box-shadown:5px 3px ;
+}
+
+input{
+  width:100%;
+  margin-bottom:10px;
+  padding:10px;
+  Border-radius:10px;
+}
+Img{
+    Width:88px;
+    height:50px;
+    float:center;
+    Margin:10px;
+}
+
+    Body{
+        Text-align:center;
+    }
+    Input:hover{
+        Color:#ffd215;
+        Background:#141900;
+    }
+  .item:hover{
+      Color:#ff000a;
+      Background:#ffcaaa;
+     } 
+     .lw{
+         Background-image:url("wood.png");
+         Background-size:cover;
+         Color:#fff;
+     }
+  
+
+</style>
+</head>
+<body>
+<img class="Bo" src="logo-oficial.jpg"></br>
+
+<input type="search" id="searchInput" placeholder="procure seu nome aqui ...">
+<div class="lw"><h1>Lista Nominal. </h1></div>
+<div class="grid-container">
+    
+  <div class="item">Nálio Naftal Salomão Nhavotso.</div>
+  <div class="item"> SALVADO BAMOSSE
+</div>
+  <div class="item">Domingos Muemed
+ </div>
+  <div class="item"> Nhympine Samuel Muleia</div>
+  <div class="item">Alberto Adelino Domingos </div>
+  <div class="item">Aniceto Andrade Marçalo</div>
+  <div class="item">Costa José Alicete</div>
+  <div class="item">Félix Francisco Gove</div>
+  <div class="item">Atanásio Pedro Muando</div>
+  <div class="item">Briston bronze</div>
+  <div class="item">Armando Domingos massoca
+</div>
+  <div class="item">Alson Assane</div>
+  <div class="item">Zura Ana Eduardo Tibana</div>
+  <div class="item">Amós Almeida Arimuemelavo </div>
+  
+</div>
+
+<script>
+const searchInput = document.getElementById('searchInput');
+const items = document.getElementsByClassName('item');
+    
+searchInput.addEventListener('input', function()
+{
+  const searchTerm = searchInput.value.toLowerCase();
+      
+  Array.from(items).forEach(function(item)
+  {
+    const itemText = item.textContent.toLowerCase();
+      
+      if(itemText.includes(searchTerm))
+      {
+        item.style.display = 'block';
+      }else{
+        item.style.display = 'none';
+      }
+  });
+});
+
+</script>
+<img src="codelogo.png">
+</body>
+</html>
+
+
