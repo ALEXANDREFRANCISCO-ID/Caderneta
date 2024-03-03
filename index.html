@@ -1,109 +1,50 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>procura seu nome </title>
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 10px;
-  Color:#fff;
-}
-    
-.item {
-  background-color: #ff9e55;
-  padding: 20px;
-  text-align: center;
-  Border-radius:20px;
-  Box-shadown:5px 3px ;
-}
-
-input{
-  width:100%;
-  margin-bottom:10px;
-  padding:10px;
-  Border-radius:10px;
-}
-Img{
-    Width:88px;
-    height:50px;
-    float:center;
-    Margin:10px;
-}
-
-    Body{
-        Text-align:center;
-    }
-    Input:hover{
-        Color:#ffd215;
-        Background:#141900;
-    }
-  .item:hover{
-      Color:#ff000a;
-      Background:#ffcaaa;
-     } 
-     .lw{
-         Background-image:url("wood.png");
-         Background-size:cover;
-         Color:#fff;
-     }
-  
-
-</style>
+    <meta charset="UTF-8">
+    <title>Título da página</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.js"></script>
+<style>
+    body {
+  background: #ffdeaa;
+  color: #3d3d3d;
+  margin: 20px;
+}
+
+#imgCat {
+  width: 25%;
+} 
+</style>
 <body>
-<img class="Bo" src="logo-oficial.jpg"></br>
-
-<input type="search" id="searchInput" placeholder="procure seu nome aqui ...">
-<div class="lw"><h1>Lista Nominal. </h1></div>
-<div class="grid-container">
     
-  <div class="item">Nálio Naftal Salomão Nhavotso.</div>
-  <div class="item"> SALVADO BAMOSSE
-</div>
-  <div class="item">Domingos Muemed
- </div>
-  <div class="item"> Nhympine Samuel Muleia</div>
-  <div class="item">Alberto Adelino Domingos </div>
-  <div class="item">Aniceto Andrade Marçalo</div>
-  <div class="item">Costa José Alicete</div>
-  <div class="item">Félix Francisco Gove</div>
-  <div class="item">Atanásio Pedro Muando</div>
-  <div class="item">Briston bronze</div>
-  <div class="item">Armando Domingos massoca
-</div>
-  <div class="item">Alson Assane</div>
-  <div class="item">Zura Ana Eduardo Tibana</div>
-  <div class="item">Amós Almeida Arimuemelavo </div>
-  
-</div>
-
-<script>
-const searchInput = document.getElementById('searchInput');
-const items = document.getElementsByClassName('item');
     
-searchInput.addEventListener('input', function()
-{
-  const searchTerm = searchInput.value.toLowerCase();
-      
-  Array.from(items).forEach(function(item)
-  {
-    const itemText = item.textContent.toLowerCase();
-      
-      if(itemText.includes(searchTerm))
-      {
-        item.style.display = 'block';
-      }else{
-        item.style.display = 'none';
-      }
-  });
-});
+    <h1>jsPDF Demo</h1>
+<p>This is a sample of how to use  <a href="https://parall.ax/products/jspdf">jsPDF</a>.</p>
+<p> Write some text and donwload a pdf file with your content</p>
 
-</script>
-<img src="codelogo.png">
+
+<textarea id="txtContent" cols="60" rows="15"></textarea>
+<br />
+<button id="btnDownload"> Download PDF </button>
+    
+    
+    
+    <script>
+        var content = document.getElementById('txtContent'),
+button = document.getElementById('btnDownload');
+
+function generatePDF(){
+  var doc = new jsPDF();
+
+  doc.setFontSize(14);
+  doc.text(20, 20, content.value);
+  //doc.text(35, 25, "Paranyan loves jsPDF");
+  //doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
+  doc.save('my.pdf');
+}
+
+button.addEventListener('click', generatePDF);
+    </script>
 </body>
 </html>
-
-
